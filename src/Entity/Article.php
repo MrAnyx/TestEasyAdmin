@@ -38,6 +38,11 @@ class Article
      */
     private $author;
 
+    /**
+     * @ORM\Column(type="boolean")
+     */
+    private $published = false;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -87,6 +92,18 @@ class Article
     public function setAuthor(?User $author): self
     {
         $this->author = $author;
+
+        return $this;
+    }
+
+    public function getPublished(): ?bool
+    {
+        return $this->published;
+    }
+
+    public function setPublished(bool $published): self
+    {
+        $this->published = $published;
 
         return $this;
     }
